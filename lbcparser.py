@@ -1,6 +1,7 @@
 import web
 import view
 from view import render
+from urlparse import urlparse
 
 
 urls = (
@@ -16,10 +17,15 @@ class index:
 
 class url:
     def GET(self):
-        # return "%s %s\n" % (name, url)
         form = web.input()
         url = form.url
-        return render.base(view.listing(url))
+        o = urlparse(url)
+        if o.netloc == 'www.leboncoin.fr':
+            web.header('Content-Type', 'text/xml')
+            # return render.response(code)
+            return view.listing(url)
+        else:
+            return ''
 
 
 if __name__ == "__main__":

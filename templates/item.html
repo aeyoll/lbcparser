@@ -1,11 +1,9 @@
 $def with (item)
 
-<div class="media">
-    <a href="$item['link']" class="pull-left">$:item['image']</a>
-    <div class="media-body">
-        <h2 class="media-header"><a href="$item['link']">$item['title']</a></h2>
-        <div class="media">
-            $item['location'] - $item['price']
-        </div>
-    </div>
-</div>
+<item>
+    <title>$item['title']</title>
+    <link>$item['link']</link>
+    <description>
+        $item['location'] - $item['price']
+    </description>
+</item>
