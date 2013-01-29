@@ -1,0 +1,3 @@
+RewriteEngine on
+RewriteCond %{REQUEST_URI} !(lbcparser.py)
+RewriteRule ^(.*)$ lbcparser.py/$1  [L]

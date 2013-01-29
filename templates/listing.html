@@ -1,4 +1,13 @@
 $def with (items)
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:taxo="http://purl.org/rss/1.0/modules/taxonomy/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" version="2.0">
+    <channel>
+        <title>LBCParser</title>
+        <description>Premier sur leboncoin</description>
+        <link>http://example.org</link>
 
 $for item in items:
     $:render.item(item)
+
+    </channel>
+</rss>
