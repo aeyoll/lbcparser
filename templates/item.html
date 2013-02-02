@@ -1,9 +1,9 @@
 $def with (item)
 
 <item>
-    <title>$item['title']</title>
-    <link>$item['link']</link>
+    <title><![CDATA[$item['title']]]></title>
+    <link><![CDATA[$item['link']]]></link>
     <description>
-        $item['location'] - $item['price']
+        <![CDATA[$item['location'] - $item['price']]]>
     </description>
 </item>
