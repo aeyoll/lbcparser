@@ -22,8 +22,6 @@ def form(**k):
 
 def listing(url, **k):
     print url
-    # url = 'http://www.leboncoin.fr/instruments_de_musique/offres/'\
-    # 'aquitaine/occasions/?f=a&th=1&q=sunn'
     url = urllib.unquote(url)
 
     soup = BeautifulSoup(
@@ -44,7 +42,10 @@ def listing(url, **k):
             annonce_data['image'] = image[0]
             annonce_data['link'] = link
             annonce_data['location'] = re.sub(' +', ' ', location[0].string)
-            annonce_data['price'] = price[0].string
+            if price:
+                annonce_data['price'] = price[0].string
+            else:
+                annonce_data['price'] = '0'
             annonce_data['title'] = title[0].string
             annonces.append(annonce_data)
 
