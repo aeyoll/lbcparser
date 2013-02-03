@@ -39,7 +39,10 @@ def listing(url, **k):
             price = lbc('div', 'price')
             title = lbc('div', 'title')
             annonce_data['date'] = date[0].div.string
-            annonce_data['image'] = image[0]
+            if image:
+                annonce_data['image'] = image[0]
+            else:
+                annonce_data['image'] = ''
             annonce_data['link'] = link
             annonce_data['location'] = re.sub(' +', ' ', location[0].string)
             if price:
