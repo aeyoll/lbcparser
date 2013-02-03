@@ -1,3 +1,9 @@
+import sys
+import os
+abspath = os.path.dirname(__file__)
+sys.path.append(abspath)
+os.chdir(abspath)
+
 import web
 import view
 from view import render
@@ -28,7 +34,5 @@ class url:
             return ''
 
 
-if __name__ == "__main__":
-    app = web.application(urls, globals())
-    app.internalerror = web.debugerror
-    app.run()
+app = web.application(urls, globals(), autoreload=False)
+application = app.wsgifunc()
