@@ -1,3 +1,12 @@
-RewriteEngine on
-RewriteCond %{REQUEST_URI} !(lbcparser.py)
-RewriteRule ^(.*)$ lbcparser.py/$1  [L]
+<Files lbcparser.py>
+	SetHandler wsgi-script
+	Options ExecCGI FollowSymLinks
+</Files>
+
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+	RewriteBase /
+	RewriteCond %{REQUEST_URI} !^/static
+	RewriteCond %{REQUEST_URI} !^(/.*)+lbcparser.py/
+	RewriteRule ^(.*)$ lbcparser.py/$1 [PT]
+</IfModule>
